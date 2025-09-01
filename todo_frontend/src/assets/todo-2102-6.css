@@ -1,0 +1,170 @@
+.todo-2102-6 {
+  background: var(--color-0f0f0f);
+}
+
+/* Header: height 98, bg 1a1a1a, border 1px color 2a2a2a */
+.todo-header {
+  background: var(--color-1a1a1a);
+  height: var(--space-33); /* 98px */
+  width: 100%;
+  border-bottom: 1px solid var(--color-2a2a2a);
+  display: flex;
+  align-items: center;
+}
+.header-inner {
+  /* Figma x offset suggests left padding; aligning to comfortable 24px (token 16=24px) */
+  padding-left: var(--space-16);
+}
+.header-title {
+  margin: 0;
+}
+.header-subtitle {
+  margin: 4px 0 0 0;
+  opacity: 0.9;
+}
+
+/* Task list container: vertically stacks task items similar to the groups measured */
+.task-list {
+  padding: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-30); /* 74px item height -> use 24px gap; but Figma stacks tightly; using 16px gap; override below */
+  gap: var(--space-7);
+}
+
+/* Task item: style_5 (bg 1a1a1a, 1px border 2a2a2a, radius 25) height 74, width 525 in figma; we'll make responsive width but keep height */
+.task-item {
+  background: var(--color-1a1a1a);
+  border: 1px solid var(--color-2a2a2a);
+  border-radius: var(--radius-25);
+  height: var(--space-30); /* 74px */
+  display: grid;
+  grid-template-columns: 48px 1fr 32px;
+  align-items: center;
+  padding: 0 var(--space-16);
+  max-width: var(--space-45); /* 525px per figma */
+  width: 100%;
+  position: relative;
+}
+
+/* Checkbox outline: style_6 border color bb86fc, width 2; ellipse 16px */
+.check {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  justify-self: start;
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+}
+.check-outline {
+  border: 2px solid var(--color-bb86fc);
+}
+.check-filled {
+  background: var(--color-bb86fc);
+  border: none;
+}
+.check-tick {
+  display: block;
+  width: var(--space-1);  /* ~6.75px */
+  height: var(--space-0); /* ~4.62px */
+  border-bottom: 2px solid var(--color-000000);
+  border-right: 2px solid var(--color-000000);
+  transform: rotate(45deg);
+  margin-top: -2px;
+}
+
+/* Task title typography from typo_6 (16px, 700, white) */
+.task-title {
+  margin: 0 0 0 var(--space-16);
+}
+
+/* Drag handle icon: in Figma it's a small vector with color 696969; we emulate with dots */
+.drag-handle {
+  width: 10px; /* approx 10.36px */
+  height: 10px;
+  justify-self: end;
+  background-image:
+    radial-gradient(circle at 25% 25%, var(--color-696969) 2px, transparent 3px),
+    radial-gradient(circle at 75% 25%, var(--color-696969) 2px, transparent 3px),
+    radial-gradient(circle at 25% 75%, var(--color-696969) 2px, transparent 3px),
+    radial-gradient(circle at 75% 75%, var(--color-696969) 2px, transparent 3px);
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+
+/* Completed state styling aligns subtitle count but title color remains white in tokens; we can lower opacity */
+.task-item.is-completed .task-title {
+  opacity: 0.7;
+}
+
+/* Floating action button: 70x70, bg bb86fc, radius 25, plus icon centered */
+.fab-add {
+  position: absolute;
+  /* Figma coords are relative to canvas; visually place bottom-right within screen area similar to x:-371 y:129 from center, we'll place bottom: 32 right: 32 */
+  right: var(--space-21); /* 32px */
+  bottom: var(--space-21); /* 32px */
+  width: 70px;
+  height: 70px;
+  border-radius: var(--radius-25);
+  background: var(--color-bb86fc);
+  border: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+.fab-plus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px; /* ~17.73px */
+  height: 18px;
+  transform: translate(-50%, -50%);
+}
+.fab-plus::before,
+.fab-plus::after {
+  content: "";
+  position: absolute;
+  background: var(--color-000000);
+  border-radius: 2px;
+}
+.fab-plus::before {
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.fab-plus::after {
+  width: 3px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+/* Responsive centering for the column of tasks */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  align-items: flex-start;
+}
+.task-list .task-item {
+  margin-left: var(--space-16); /* align with header text left padding */
+}
+
+/* Small screens: allow the screen to scale down while preserving proportions */
+@media (max-width: 960px) {
+  .screen {
+    width: 100%;
+    height: auto;
+    min-height: var(--screen-h);
+  }
+  .task-item {
+    max-width: 100%;
+  }
+}

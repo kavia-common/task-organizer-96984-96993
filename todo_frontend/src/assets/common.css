@@ -1,0 +1,135 @@
+:root {
+  /* Colors from design system */
+  --color-0f0f0f: #0f0f0f;
+  --color-1a1a1a: #1a1a1a;
+  --color-2a2a2a: #2a2a2a;
+  --color-ffffff: #ffffff;
+  --color-bb86fc: #bb86fc;
+  --color-000000: #000000;
+  --color-696969: #696969;
+  --color-0d0714: #0d0714;
+  --color-1d1825: #1d1825;
+  --color-15101c: #15101c;
+  --color-9e78cf: #9e78cf;
+  --color-78cfb0: #78cfb0;
+  --color-777777: #777777;
+  --color-3e1671: #3e1671;
+
+  /* Typography tokens (Inter) */
+  --font-family-inter: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji';
+  --typo-0-size: 24px; --typo-0-weight: 400; --typo-0-line: 29.045454px;
+  --typo-1-size: 12px; --typo-1-weight: 400; --typo-1-line: 14.522727px;
+  --typo-2-size: 16px; --typo-2-weight: 700; --typo-2-line: 19.363636px;
+  --typo-3-size: 16px; --typo-3-weight: 400; --typo-3-line: 19.363636px;
+
+  /* Derived typography colors */
+  --typo-4-color: var(--color-ffffff);
+  --typo-5-color: var(--color-ffffff);
+  --typo-6-color: var(--color-ffffff);
+  --typo-7-color: var(--color-9e78cf);
+  --typo-8-color: var(--color-78cfb0);
+  --typo-9-color: var(--color-ffffff);
+  --typo-10-color: var(--color-777777);
+
+  /* Spacing scale (indices preserved as comments) */
+  --space-0: 4.622222px;    /*0*/
+  --space-1: 6.755556px;    /*1*/
+  --space-2: 8px;           /*2*/
+  --space-3: 10.360703px;   /*3*/
+  --space-4: 11px;          /*4*/
+  --space-5: 11.377808px;   /*5*/
+  --space-6: 12.375923px;   /*6*/
+  --space-7: 16px;          /*7*/
+  --space-8: 16.5px;        /*8*/
+  --space-9: 17px;          /*9*/
+  --space-10: 17.142857px;  /*10*/
+  --space-11: 17.188267px;  /*11*/
+  --space-12: 17.733334px;  /*12*/
+  --space-13: 17.875px;     /*13*/
+  --space-14: 19px;         /*14*/
+  --space-15: 22px;         /*15*/
+  --space-16: 24px;         /*16*/
+  --space-17: 26px;         /*17*/
+  --space-18: 28px;         /*18*/
+  --space-19: 30px;         /*19*/
+  --space-20: 31px;         /*20*/
+  --space-21: 32px;         /*21*/
+  --space-22: 40px;         /*22*/
+  --space-23: 43.866669px;  /*23*/
+  --space-24: 46.143616px;  /*24*/
+  --space-25: 51.000004px;  /*25*/
+  --space-26: 64px;         /*26*/
+  --space-27: 67px;         /*27*/
+  --space-28: 68px;         /*28*/
+  --space-29: 70px;         /*29*/
+  --space-30: 74px;         /*30*/
+  --space-31: 75px;         /*31*/
+  --space-32: 95px;         /*32*/
+  --space-33: 98px;         /*33*/
+  --space-34: 101px;        /*34*/
+  --space-35: 110px;        /*35*/
+  --space-36: 114px;        /*36*/
+  --space-37: 117px;        /*37*/
+  --space-38: 221px;        /*38*/
+  --space-39: 293px;        /*39*/
+  --space-40: 343.149475px; /*40*/
+  --space-41: 381px;        /*41*/
+  --space-42: 384px;        /*42*/
+  --space-43: 390.904877px; /*43*/
+  --space-44: 432px;        /*44*/
+  --space-45: 525px;        /*45*/
+  --space-46: 540px;        /*46*/
+  --space-47: 583px;        /*47*/
+  --space-48: 758px;        /*48*/
+  --space-49: 960px;        /*49*/
+  --space-50: 1024px;       /*50*/
+  --space-51: 1440px;       /*51*/
+
+  /* Border radius tokens */
+  --radius-5: 5px;
+  --radius-10: 10px;
+  --radius-20: 20px;
+  --radius-25: 25px;
+
+  /* Screen dimension tokens (from frame) */
+  --screen-w: 960px;
+  --screen-h: 540px;
+}
+
+/* Resets and base */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-inter);
+  background: var(--color-0f0f0f);
+  color: var(--color-ffffff);
+  height: 100%;
+}
+
+.screen {
+  width: var(--screen-w);
+  height: var(--screen-h);
+  margin: 0 auto;
+  position: relative;
+  background: var(--color-0f0f0f);
+  overflow: hidden;
+}
+
+/* Utility classes matching styles from design system */
+.bg-1a1a1a { background: var(--color-1a1a1a); }
+.bg-bb86fc { background: var(--color-bb86fc); }
+.bg-15101c { background: var(--color-15101c); }
+.text-white { color: var(--color-ffffff); }
+.text-muted { color: var(--color-777777); }
+
+/* Typography helpers from tokens */
+.typo-4 { font-size: var(--typo-0-size); line-height: var(--typo-0-line); font-weight: var(--typo-0-weight); color: var(--typo-4-color); }
+.typo-5 { font-size: var(--typo-1-size); line-height: var(--typo-1-line); font-weight: var(--typo-1-weight); color: var(--typo-5-color); }
+.typo-6 { font-size: var(--typo-2-size); line-height: var(--typo-2-line); font-weight: var(--typo-2-weight); color: var(--typo-6-color); }
+
+/* Accessible focus */
+:focus-visible {
+  outline: 2px solid var(--color-bb86fc);
+  outline-offset: 2px;
+}
